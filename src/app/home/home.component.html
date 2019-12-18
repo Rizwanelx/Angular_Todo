@@ -1,0 +1,29 @@
+<div class='container'>
+<h1 class=main-heading>Todo App</h1>
+<div class='row'>
+<div class='col-1'>
+
+<ul  *ngFor="let t of todo"(click)="TodoClicked(t);" >
+<div class='inner-container'>
+   <p>{{t.id}}  {{t.title}}</p> 
+   <p > {{t.name}}</p>
+   <p (click)='getTodById(t._id)'><i class="fas fa-cog"></i></p>
+    <p (click)=removeTodo() ><i class="fas fa-trash"></i></p>
+</div>
+</ul>
+
+</div>
+
+<div class='col-2'>
+<button class='btn' (click)='isFavirote =!isFavirote'>Add Todo</button><br>
+<div [ngClass]="{'hide-btn':isFavirote}">
+<form (ngSubmit)="submitTodo()" [formGroup]="todoForm" >
+<input class='form-control' type="text" formControlName="title" placeholder='Todo title' required><br>
+<input class='form-control' type="text" formControlName="name" placeholder='Todo name' required><br><br>
+<button  class='btn' type='submit'>Submit Todo</button>
+</form>
+</div>
+</div>
+</div>
+
+
