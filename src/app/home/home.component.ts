@@ -28,7 +28,7 @@ selectedTodo: Todo;
 
 
 getTodos() {
-  this.rest.gettodos().subscribe(
+  this.rest.getTodos().subscribe(
     res => {
       this.todo = res;
       console.log(res);
@@ -42,7 +42,7 @@ getTodos() {
 }
 submitTodo(todo: Todo) {
 console.log(this.todoForm.value);
-this.rest.posttodos(this.todoForm.value).subscribe(
+this.rest.postTodos(this.todoForm.value).subscribe(
   res => {
     console.log('Form Data' + this.todoForm.value);
     window.location.reload();
@@ -69,7 +69,6 @@ getTodById() {
         name: this.todo.name
 
   });
-      this.todoForm.reset();
   }
   );
 }

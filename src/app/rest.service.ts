@@ -11,15 +11,15 @@ apiUrl = 'http://localhost:3002/api/todo';
 
   constructor(public http: HttpClient) { }
 
-gettodos(): Observable<any> {
+getTodos(): Observable<any> {
 return this.http.get(this.apiUrl);
 }
-posttodos( todo: Todo): Observable<any> {
+postTodos( todo: Todo): Observable<any> {
   return this.http.post(this.apiUrl, todo);
 }
 
-getTodoById(id: number) {
-    return this.http.get(this.apiUrl + '/' + id);
+getTodoById(_id: number) {
+    return this.http.get(this.apiUrl + '/' + _id);
 }
 editTodo(todo: Todo, id: number) {
     return this.http.put(this.apiUrl + '/' + id + '/', todo);
@@ -28,3 +28,5 @@ deleteTodo(id: number) {
     return this.http.delete(this.apiUrl + '/' + id);
   }
 }
+
+
